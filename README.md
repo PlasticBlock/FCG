@@ -31,7 +31,7 @@ Normals and separate chunks.
 
 ###LICENSE:
 
-Licensed under GPLv3 license or under special license. 
-See the LICENSE file in the project root for more information.
+<br>Licensed under GPLv3 license or under special license. 
+<br>See the LICENSE file in the project root for more information.
 
-FCG Copyright (C) 2016 Mukhamedsadikov "Plastic Block" Jasur.
+<br>FCG Copyright (C) 2016 Mukhamedsadikov "Plastic Block" Jasur.

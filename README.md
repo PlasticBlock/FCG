@@ -1,6 +1,6 @@
 # Fractal Caves Generator
 
-###INFO:
+### INFO:
 
 FCG (Fractal Caves generator) is procedural caves generation system written on C# for Unity3D.
 
@@ -25,11 +25,11 @@ Normals and separate chunks.
 </p>
 
 
-###CONTACT:
+### CONTACT:
 <br>E-mail: contact@plasticblock.xyz, support@plasticblock.xyz.
 <br>Skype: plasticblock.
 
-###LICENSE:
+### LICENSE:
 
 <br>Licensed under GPLv3 license or under special license. 
 <br>See the LICENSE file in the project root for more information.

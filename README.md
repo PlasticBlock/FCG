@@ -26,8 +26,8 @@ Normals and separate chunks.
 
 
 ### CONTACTS:
+<br>website: http://plasticblock.xyz
 <br>E-mail: contact@plasticblock.xyz.
-<br>Skype: plasticblock.
 
 ### LICENSE:
 

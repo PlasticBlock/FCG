@@ -1,14 +1,14 @@
-# Fractal Caves Generator
+# Random Walk Caves Generator
 
 ### INFO:
 
-FCG (Fractal Caves generator) is procedural caves generation system written on C# for Unity3D.
+RWCG (Random Walk Caves generator) is procedural caves generation system written on C# for Unity3D.
 
 Cave generation process:
 
 <b>1. Cave generation in Matrix object.</b> 
 Cave's data is generating inside seperate matrix using properties - size [x * y], pseudorandom seed and etc.
-On this stage, matrix is filling recursive. (FractalGenerator)
+On this stage, matrix is filling recursive. (RandomWalkGenerator)
 
 <b>2. Mesh generation (UnityEngine.Mesh).</b> 
 After matrix is generated, EnvironmentGenerator component, generates separete matrices by slicing main matrix to the

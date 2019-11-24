@@ -20,13 +20,13 @@ After matrix is generated, `EnvironmentGenerator` component, generates separete 
 separete chunks and provides them to the `MeshGenerator` component which generates Unity's Meshes.
 
 <p>
-	<img alt="cave 1" src="http://plasticblock.xyz/images/rwcg/cave-example-1.png" width="240">
-	<img alt="cave 2" src="http://plasticblock.xyz/images/rwcg/cave-example-2.png" width="240">
+	<img alt="cave 1" src="http://plasticblock.xyz/projects/rwcg/cave-example-1.png" width="240">
+	<img alt="cave 2" src="http://plasticblock.xyz/projects/rwcg/cave-example-2.png" width="240">
 </p>
 Normals and separate chunks.
 <p>
-	<img alt="normals" src="http://plasticblock.xyz/images/rwcg/cave-mesh-structure-1.png" height="240">
-	<img alt="chunks" src="http://plasticblock.xyz/images/rwcg/cave-mesh-structure-2.png" height="240">
+	<img alt="normals" src="http://plasticblock.xyz/projects/rwcg/cave-mesh-structure-1.png" height="240">
+	<img alt="chunks" src="http://plasticblock.xyz/projects/rwcg/cave-mesh-structure-2.png" height="240">
 </p>
 
 

@@ -1,14 +1,15 @@
 ﻿// Licensed under GPLv3 license or under special license
 // See the LICENSE file in the project root for more information
 // -----------------------------------------------------------------------
-// Author: Plastic Block <admin@plasticblock.xyz>
-// skype: plasticblock, email: support@plasticblock.xyz
-// project: Fractal Caves Generator (FCG)
+// Author: Jasur Sadikov <contact@plasticblock.xyz>
+// Skype: plasticblock, E-mail: contact@plasticblock.xyz
+// Project: Random Walk Caves Generator (RWCG)
 // -----------------------------------------------------------------------
+
 using UnityEngine;
 using System.Linq;
 
-namespace FCG
+namespace vmp1r3.RandomWalkCavesGenerator
 {
 	/// <summary>
 	/// Mesh generator.
@@ -42,11 +43,6 @@ namespace FCG
 		{
 			Generate();
 			filter.mesh = mesh;
-
-#if DEBUG
-			Debug.Log(string.Format("\nMesh statistics.\n Vertices = {0}\n Triangles = {1}\n Normals = {2}\n UVs = {3}",
-				mesh.vertexCount, mesh.triangles.Length, mesh.normals.Length, mesh.uv.Length));
-#endif
 		}
 
 		/// <summary>
@@ -54,20 +50,17 @@ namespace FCG
 		/// </summary>
 		protected override void CalculateVertices()
 		{
-#if DEBUG
-			Debug.Log("Mesh. Calculating Vertices.");
-#endif
-			Vector3[,] uVertices = new Vector3[chunk.Size.x, chunk.Size.y];
+			var unityVertices = new Vector3[chunk.Size.x, chunk.Size.y];
 			_vertices = new Vertex[chunk.Size.x, chunk.Size.y];
 
 			for (int y = 0, i = 0; y < chunk.Size.y; y++)
 				for (int x = 0; x < chunk.Size.x; x++, i++)
 				{
-					uVertices[x, y] = new Vector3(x * scale, y * scale);
-					_vertices[x, y] = new Vertex(uVertices[x, y], new Vector2Int(x, y), i, chunk.Cells[x, y]);
+					unityVertices[x, y] = new Vector3(x * scale, y * scale);
+					_vertices[x, y] = new Vertex(unityVertices[x, y], new Vector2Int(x, y), i, chunk.Cells[x, y]);
 				}
 
-			mesh.vertices = uVertices.Cast<Vector3>().ToArray();
+			mesh.vertices = unityVertices.Cast<Vector3>().ToArray();
 		}
 
 		/// <summary>
@@ -75,19 +68,15 @@ namespace FCG
 		/// </summary>
 		protected override void CalculateTriangles()
 		{
-#if DEBUG
-			Debug.Log("Mesh. Calculating Triangles.");
-#endif
 			int[] triangles = new int[(chunk.Size.x) * (chunk.Size.y) * 6];
 
 			for (int y = 0, i = 0; y < chunk.Size.y - 1; y++)
 				for (int x = 0; x < chunk.Size.x - 1; x++)
 				{
-					bool a = chunk.Cells[x, y] == chunk.DefaultStatus;
-					bool b = chunk.Cells[x, y + 1] == chunk.DefaultStatus;
-					bool c = chunk.Cells[x + 1, y + 1] == chunk.DefaultStatus;
-					bool d = chunk.Cells[x + 1, y] == chunk.DefaultStatus;
-
+					bool a = !chunk.Cells[x, y];
+					bool b = !chunk.Cells[x, y + 1];
+					bool c = !chunk.Cells[x + 1, y + 1];
+					bool d = !chunk.Cells[x + 1, y];
 
 					//  b---c
 					//  | / |
@@ -129,6 +118,7 @@ namespace FCG
 						triangles[i++] = _vertices[x + 1, y + 1].meshId;
 					}
 				}
+
 			mesh.triangles = triangles.ToArray();
 		}
 
@@ -137,13 +127,10 @@ namespace FCG
 		/// </summary>
 		protected override void CalculateNormals()
 		{
-#if DEBUG
-			Debug.Log("Mesh. Calculating Normals.");
-#endif
-			Vector3[] normals = new Vector3[mesh.vertexCount];
+			var normals = new Vector3[mesh.vertexCount];
 
 			for (int i = 0; i < normals.Length; i++)
-				normals[i] = mesh.vertices[i] + Vector3.back; //Нормаль направляется в заднюю сторону (передняя сторона объекта.).
+				normals[i] = mesh.vertices[i] + Vector3.back;
 
 			mesh.normals = normals;
 		}
@@ -153,10 +140,7 @@ namespace FCG
 		/// </summary>
 		protected override void CalculateUv()
 		{
-#if DEBUG
-			Debug.Log("Mesh. Calculating UVs.");
-#endif
-			Vector2[,] uvs = new Vector2[chunk.Size.x, chunk.Size.y];
+			var uvs = new Vector2[chunk.Size.x, chunk.Size.y];
 
 			for (int y = 0; y < chunk.Size.y; y++)
 				for (int x = 0; x < chunk.Size.x; x++)
@@ -176,7 +160,7 @@ namespace FCG
 					for (int x = 0; x < chunk.Size.x; x++)
 					{
 						Gizmos.color = chunk.Cells[x, y] ? Color.green : Color.black;
-						Gizmos.DrawCube(transform.position + new Vector3(x, y) * scale, Vector3.one * 0.3f * scale);
+						Gizmos.DrawCube(transform.position + new Vector3(x, y) * scale, scale * 0.3f * Vector3.one);
 					}
 
 				Gizmos.color = Color.yellow;
@@ -184,7 +168,7 @@ namespace FCG
 				for (int v = 0; v < mesh.vertexCount; v++)
 					Gizmos.DrawLine(mesh.vertices[v] + transform.position, mesh.normals[v] + transform.position);
 			}
-			catch { /* ignored */}
+			catch { }
 		}
 	}
 }

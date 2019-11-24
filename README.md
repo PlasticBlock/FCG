@@ -1,37 +1,38 @@
 # Random Walk Caves Generator
 
-### INFO:
+RWCG (Random Walk Caves generator) is procedural 2D caves generation system written for Unity.
 
-RWCG (Random Walk Caves generator) is procedural caves generation system written on C# for Unity3D.
+## Install Package
 
-Cave generation process:
+Git upm package link
+https://github.com/vmp1r3/RandomWalkCavesGenerator.git#upm
 
-<b>1. Cave generation in Matrix object.</b> 
-Cave's data is generating inside seperate matrix using properties - size [x * y], pseudorandom seed and etc.
-On this stage, matrix is filling recursive. (RandomWalkGenerator)
+## Cave generation process
 
-<b>2. Mesh generation (UnityEngine.Mesh).</b> 
-After matrix is generated, EnvironmentGenerator component, generates separete matrices by slicing main matrix to the
-separete chunks and provides them to the MeshGenerator component which generates Unity Meshes.
+### Cave generation in Matrix object.
 
-<p align="left">
-	<img alt="cave 1" src="http://i.imgur.com/tb4ju2z.png" height="240" width="240">
-	<img alt="cave 2" src="http://i.imgur.com/eeDgeGa.png" height="240" width="240">
+Cave's data is generating inside seperate `Matrix` object according to size property and pseudorandom algorithm's result.
+On this stage, matrix is filling recursive by walking to different random directions.
+Each seed returns same results so if you want to save your result just save seed that you've used to generate cave.
+
+### Mesh generation
+After matrix is generated, `EnvironmentGenerator` component, generates separete matrices by slicing main matrix into
+separete chunks and provides them to the `MeshGenerator` component which generates Unity's Meshes.
+
+<p>
+	<img alt="cave 1" src="http://plasticblock.xyz/images/rwcg/cave-example-1.png" width="240">
+	<img alt="cave 2" src="http://plasticblock.xyz/images/rwcg/cave-example-2.png" width="240">
 </p>
 Normals and separate chunks.
-<p align="left">
-	<img alt="normals" src="http://i.imgur.com/qq2VZBG.png" height="240" width="240">
-	<img alt="chunks" src="http://i.imgur.com/c3DSrvM.png" height="240" width="240">
+<p>
+	<img alt="normals" src="http://plasticblock.xyz/images/rwcg/cave-mesh-structure-1.png" height="240">
+	<img alt="chunks" src="http://plasticblock.xyz/images/rwcg/cave-mesh-structure-2.png" height="240">
 </p>
 
 
-### CONTACTS:
-<br>website: http://plasticblock.xyz
-<br>E-mail: contact@plasticblock.xyz.
+## CONTACTS
+<br>*Website* http://plasticblock.xyz
+<br>*E-mail* contact@plasticblock.xyz.
 
-### LICENSE:
-
-<br>Licensed under GPLv3 license or under special license. 
-<br>See the LICENSE file in the project root for more information.
-
-<br>FCG Copyright (C) 2016 Jasur "plasticblock" Sadikov.
+## LICENSE
+<br>Licensed under GPLv3 license or under special license. See the LICENSE file in the project root for more information.

@@ -1,33 +1,31 @@
 ﻿// Licensed under GPLv3 license or under special license
 // See the LICENSE file in the project root for more information
 // -----------------------------------------------------------------------
-// Author: Plastic Block <admin@plasticblock.xyz>
-// skype: plasticblock, email: support@plasticblock.xyz
-// project: Fractal Caves Generator (FCG)
+// Author: Jasur Sadikov <contact@plasticblock.xyz>
+// Skype: plasticblock, E-mail: contact@plasticblock.xyz
+// Project: Random Walk Caves Generator (RWCG)
 // -----------------------------------------------------------------------
+
 using UnityEngine;
 
-namespace FCG
+namespace vmp1r3.RandomWalkCavesGenerator
 {
 	/// <summary>
-	/// Abstract mesh generator. Base of MeshGenerator.
+	/// Abstract mesh generator.
 	/// </summary>
 	public abstract class AbstractMeshGenerator : MonoBehaviour
 	{
 		/// <summary>
-		/// Mesh.
+		/// Generated mesh. Null if mesh was not generated.
 		/// </summary>
 		protected Mesh mesh;
 
 		/// <summary>
-		/// Generation Start Point.
+		/// Generates mesh.
 		/// </summary>
-		protected virtual void Generate()
+		protected void Generate()
 		{
-#if DEBUG
-			Debug.Log("Mesh. Generation Started.");
-#endif
-			Precalculation();
+			CreateMesh();
 			CalculateVertices();
 			CalculateTriangles();
 			CalculateNormals();
@@ -37,11 +35,8 @@ namespace FCG
 		/// <summary>
 		/// Mesh generation pre-process.
 		/// </summary>
-		protected virtual void Precalculation()
+		private void CreateMesh()
 		{
-#if DEBUG
-			Debug.Log("Mesh. Precalculating Mesh.");
-#endif
 			mesh = new Mesh();
 			mesh.Optimize();
 			mesh.MarkDynamic();
@@ -49,22 +44,22 @@ namespace FCG
 		}
 
 		/// <summary>
-		/// Generating vertices.
+		/// Calculates vertices.
 		/// </summary>
 		protected abstract void CalculateVertices();
 
 		/// <summary>
-		/// Generating triangles.
+		/// Calculates triangles.
 		/// </summary>
 		protected abstract void CalculateTriangles();
 
 		/// <summary>
-		/// Generating normals.
+		/// Calculates normals.
 		/// </summary>
 		protected abstract void CalculateNormals();
 
 		/// <summary>
-		/// Generating UVs.
+		/// Calculates UVs.
 		/// </summary>
 		protected abstract void CalculateUv();
 	}

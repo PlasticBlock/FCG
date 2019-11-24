@@ -1,0 +1,20 @@
+{
+	"name": "com.vmp1r3.random-walk-caves-generator",
+	"version": "1.0.0",
+	"displayName": "2D Random Walk Caves Generator (RWCG)",
+	"description": "Simple 2D cave generation implementation using Random Walk algorithm.",
+	"unity": "2019.3",
+	"author": {
+		"name": "Jasur \"vmp1r3\" Sadikov",
+		"email": "contact@plasticblock.xyz",
+		"url": "http://plasticblock.xyz/"
+	},
+	"keywords": [
+		"Generation",
+		"Procedural Generation",
+		"Random Walk",
+		"Cave",
+		"Caves",
+		"Mesh"
+	]
+}

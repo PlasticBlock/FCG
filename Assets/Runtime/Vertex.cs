@@ -1,13 +1,14 @@
 ﻿// Licensed under GPLv3 license or under special license
 // See the LICENSE file in the project root for more information
 // -----------------------------------------------------------------------
-// Author: Plastic Block <admin@plasticblock.xyz>
-// skype: plasticblock, email: support@plasticblock.xyz
-// project: Fractal Caves Generator (FCG)
+// Author: Jasur Sadikov <contact@plasticblock.xyz>
+// Skype: plasticblock, E-mail: contact@plasticblock.xyz
+// Project: Random Walk Caves Generator (RWCG)
 // -----------------------------------------------------------------------
+
 using UnityEngine;
 
-namespace FCG
+namespace vmp1r3.RandomWalkCavesGenerator
 {
 	/// <summary>
 	/// Vertex.

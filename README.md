@@ -20,6 +20,8 @@ Normals and separate chunks.
 	<img alt="normals" src="http://plasticblock.xyz/projects/rwcg/cave-mesh-structure-1.png" height="240">
 	<img alt="chunks" src="http://plasticblock.xyz/projects/rwcg/cave-mesh-structure-2.png" height="240">
 </p>
-## CONTACTS
+
+## Contacts
+
 **Website** http://plasticblock.xyz
 <br>**E-mail** contact@plasticblock.xyz.

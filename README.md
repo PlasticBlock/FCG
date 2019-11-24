@@ -31,8 +31,8 @@ Normals and separate chunks.
 
 
 ## CONTACTS
-<br>*Website* http://plasticblock.xyz
-<br>*E-mail* contact@plasticblock.xyz.
+**Website** http://plasticblock.xyz
+<br>**E-mail** contact@plasticblock.xyz.
 
 ## LICENSE
 <br>Licensed under GPLv3 license or under special license. See the LICENSE file in the project root for more information.
